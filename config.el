@@ -2,4 +2,5 @@
 
 ;; Place your private configuration here
 
-(load! "+ui")
+(load! "+misc")
+(load! "+org")
