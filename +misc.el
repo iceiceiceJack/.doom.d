@@ -1,12 +1,16 @@
 ;;; ~/.doom.d/+misc.el -*- lexical-binding: t; -*-
 
 ;;(setq doom-font (font-spec :family "Monospace" :size 12))
-
-(setq doom-theme 'doom-solarized-light)
 ;;(setq doom-font (font-spec :family "Fira Mono" :size 12))
 
-(after! doom-themes
-  (toggle-frame-maximized))
+(setq user-full-name "Jackie Zhang"
+      user-mail-address "zhangk1991@gmail.com")
+
+
+(when IS-MAC
+  (setq doom-theme 'doom-solarized-light)
+  (setq ns-use-thin-smoothing t)
+  (add-hook 'window-setup-hook #'toggle-frame-maximized))
 
 (unless window-system
   (xterm-mouse-mode 1)
