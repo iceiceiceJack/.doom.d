@@ -4,3 +4,4 @@
 
 (load! "+misc")
 (load! "+org")
+(load! "+bindings")
