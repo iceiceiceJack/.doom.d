@@ -38,15 +38,12 @@
           ("p" "Project")
           ("pq" "Qidian" entry
            (file+headline +org-capture-todo-file "Projects")
-           "* TODO [#A] %? :qidian:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+           "* TODO [#A] %?:qidian:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
            :prepent t :kill-buffer t)
-          ;; ("b" "Blog")
-          ;; ("bm" "Misc" entry
-          ;;  (file+olp org-agenda-file-blog "Blog" "Misc")
-          ;;  (function iceiceice/org-hugo-new-subtree-post-capture-template))
-          ;; ("bp" "Python" entry
-          ;;  (file+olp org-agenda-file-blog "Blog" "Python")
-          ;;  (function iceiceice/org-hugo-new-subtree-post-capture-template))
+          ("b" "Blog")
+          ("bm" "Misc" entry
+           (file+olp +org-capture-blog-file "Blog" "Misc")
+           (function +my/org-hugo-new-subtree-post-capture-template))
           ))
 
   ;; agenda
