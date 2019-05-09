@@ -7,9 +7,11 @@
       user-mail-address "zhangk1991@gmail.com")
 
 (when IS-MAC
-  (setq doom-theme 'doom-solarized-light
-        ns-use-thin-smoothing t)
-  (add-hook 'window-setup-hook #'toggle-frame-maximized))
+  (if window-system
+    (setq doom-theme 'doom-solarized-light
+          ns-use-thin-smoothing t)
+    (setq doom-theme 'doom-molokai))
+    (add-hook 'window-setup-hook #'toggle-frame-maximized))
 
 (fcitx-aggressive-setup)
 (when IS-LINUX
