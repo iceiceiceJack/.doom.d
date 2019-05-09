@@ -51,9 +51,9 @@
 
   ;; agenda
   (setq org-agenda-inhibit-startup t ;; ~50x speedup
-        org-agenda-span 'day
+        ;; org-agenda-span 'day
         org-agenda-use-tag-inheritance nil ;; 3-4x speedup
-        org-agenda-window-setup 'only-window
+        ;; org-agenda-window-setup 'only-window
         org-log-done t)
   (setq org-agenda-custom-commands
         '(

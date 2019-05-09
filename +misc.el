@@ -8,8 +8,8 @@
 
 
 (when IS-MAC
-  (setq doom-theme 'doom-solarized-light)
-  (setq ns-use-thin-smoothing t)
+  (setq doom-theme 'doom-solarized-light
+        ns-use-thin-smoothing t)
   (add-hook 'window-setup-hook #'toggle-frame-maximized))
 
 (unless window-system
