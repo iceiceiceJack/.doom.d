@@ -12,3 +12,5 @@
   (add-hook 'window-setup-hook #'toggle-frame-maximized))
 
 (fcitx-aggressive-setup)
+(when IS-LINUX
+  (setq fcitx-use-dbus t))
