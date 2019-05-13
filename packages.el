@@ -8,3 +8,6 @@
 ;; brew install codefalling/fcitx-remote-for-osx/fcitx-remote-for-osx --with-osx-pinyin
 ;; instead ABC by U.S.
 (package! fcitx)
+
+(package! ccls :disable t)
+(package! eglot)
