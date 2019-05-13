@@ -17,6 +17,7 @@
         +org-capture-blog-file (expand-file-name "posts.org" +my-blog-dir)
         org-agenda-files (list
                           (expand-file-name +org-capture-todo-file org-directory)
+                          (expand-file-name +org-capture-notes-file org-directory)
                           +org-capture-blog-file)
         )
 
