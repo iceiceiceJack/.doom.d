@@ -7,7 +7,9 @@
 ;; brew tap codefalling/fcitx-remote-for-osx
 ;; brew install codefalling/fcitx-remote-for-osx/fcitx-remote-for-osx --with-osx-pinyin
 ;; instead ABC by U.S.
-(package! fcitx)
+;; (package! fcitx)
 
 (package! ccls :disable t)
 (package! eglot)
+
+(package! pyim-basedict)
