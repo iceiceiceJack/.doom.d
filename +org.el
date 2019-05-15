@@ -72,11 +72,12 @@
 
   ;; clock
   (setq org-clock-in-switch-to-state "STARTED"
+        org-clock-out-switch-to-state "LATER"
         org-clock-into-drawer t
         org-clock-out-remove-zero-time-clocks t)
 
   ;; todo keywords
   (setq org-todo-keywords
         (quote ((sequence "TODO(t!)" "|" "DONE(d!)")
-                (sequence "STARTED(s)" "|" "LATER(S)" "WAITING(w@/!)" "CANCELLED(c@/!)"))))
+                (sequence "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "CANCELLED(c@/!)"))))
   )
