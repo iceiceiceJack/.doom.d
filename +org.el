@@ -4,7 +4,9 @@
 
 (after! org
   (add-to-list 'org-modules 'org-habit t)
-
+  (add-hook 'org-mode-hook
+            (lambda()
+              (setq truncate-lines nil)))
   (setq org-ellipsis " ▼ "
         org-bullets-bullet-list '("#")
         org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:")
