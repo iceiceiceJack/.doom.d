@@ -17,7 +17,9 @@
         :g [mouse-5] 'scroll-up-line))
 
 (after! evil
-  (setq evil-escape-key-sequence "kj"))
+  (setq evil-escape-key-sequence "kj")
+  (map! :i "C-f" #'evil-forward-char
+        :i "C-b" #'evil-backward-char))
 
 ;; input configure
 ;; (fcitx-aggressive-setup)
