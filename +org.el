@@ -78,6 +78,5 @@
 
   ;; todo keywords
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t!)" "|" "DONE(d!)")
-                (sequence "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "CANCELLED(c@/!)"))))
+        (quote ((sequence "TODO(t!)" "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)"))))
   )
