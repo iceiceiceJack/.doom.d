@@ -81,4 +81,8 @@
   ;; todo keywords
   (setq org-todo-keywords
         (quote ((sequence "TODO(t!)" "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)"))))
+
+  ;; bingdings
+  (map! (:mode org-mode
+          (:ni "C-c i s" #'+my/org-insert-src-block)))
   )

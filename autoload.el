@@ -17,3 +17,18 @@
                  "%?\n")          ;Place the cursor here finally
                "\n"))
   )
+
+;;;###autoload
+(defun +my/org-insert-src-block(src-code-type)
+  "Insert a `SRC-CODE-TYPE' type source code block in org-mode."
+  (interactive
+   (let ((src-code-types
+          '("C++" "python" "sh" "C" "js" "sql" "lisp")))
+     (list (ido-completing-read "Source code type: " src-code-types))))
+  (progn
+    (newline-and-indent)
+    (insert (format "#+BEGIN_SRC %s\n" src-code-type))
+    (newline-and-indent)
+    (insert "#+END_SRC\n")
+    (previous-line 2)
+    (org-edit-src-code)))
