@@ -1,4 +1,5 @@
 ;;; ~/.doom.d/+misc.el -*- lexical-binding: t; -*-
+;;; contain key bindings
 
 (setq user-full-name "Jackie Zhang"
       user-mail-address "zhangk1991@gmail.com")
@@ -16,16 +17,16 @@
   (map! :g [mouse-4] 'scroll-down-line
         :g [mouse-5] 'scroll-up-line))
 
+
 (after! evil
   (setq evil-escape-key-sequence "kj")
   (map! :i "C-f" #'evil-forward-char
         :i "C-b" #'evil-backward-char))
 
-;; input configure
-;; (fcitx-aggressive-setup)
-;; (when IS-LINUX
-;;   (setq fcitx-use-dbus t))
 
+;; brew tap codefalling/fcitx-remote-for-osx
+;; brew install codefalling/fcitx-remote-for-osx/fcitx-remote-for-osx --with-osx-pinyin
+;; instead ABC by U.S.
 (if (featurep! :input chinese)
     (after! pyim
       (pyim-basedict-enable)
@@ -44,3 +45,7 @@
   (fcitx-aggressive-setup)
   (when IS-LINUX
     (setq fcitx-use-dbus t)))
+
+(map! :leader
+      (:prefix-map ("b" . buffer)
+        :desc "iBuffer" "i" #'ibuffer))
