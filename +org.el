@@ -47,6 +47,9 @@
           ("bm" "Misc" entry
            (file+olp +org-capture-blog-file "Blog" "Misc")
            (function +my/org-hugo-new-subtree-post-capture-template))
+          ("bc" "Coding" entry
+           (file+olp +org-capture-blog-file "Blog" "Coding")
+           (function +my/org-hugo-new-subtree-post-capture-template))
           ))
 
   ;; agenda
