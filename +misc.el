@@ -21,7 +21,11 @@
 (after! evil
   (setq evil-escape-key-sequence "kj")
   (map! :i "C-f" #'evil-forward-char
-        :i "C-b" #'evil-backward-char))
+        :i "C-b" #'evil-backward-char
+        :i "C-n" #'evil-next-line
+        :i "C-p" #'evil-previous-line
+        :n "C-a" #'evil-first-non-blank
+        :n "C-e" #'evil-end-of-line))
 
 
 ;; brew tap codefalling/fcitx-remote-for-osx
