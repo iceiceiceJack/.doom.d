@@ -13,10 +13,9 @@
   (add-hook 'window-setup-hook #'toggle-frame-maximized))
 (unless window-system
   (setq doom-theme 'doom-molokai)
-  (xterm-mouse-mode 1)
-  (map! :g [mouse-4] 'scroll-down-line
-        :g [mouse-5] 'scroll-up-line))
-
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] 'scroll-down-line)
+  (global-set-key [mouse-5] 'scroll-up-line))
 
 (after! evil
   (setq evil-escape-key-sequence "kj")
