@@ -9,8 +9,7 @@
               (setq truncate-lines nil)))
   (setq org-ellipsis " ▼ "
         org-bullets-bullet-list '("#")
-        org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:")
-        )
+        org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
 
   ;; define file target
   (setq org-directory "~/Org-notes/"
@@ -38,10 +37,14 @@
            (file+headline +org-capture-notes-file "Quick Notes")
            "* %?\n%i\n"
            :prepend t :kill-buffer t)
-          ("p" "Project")
-          ("pq" "Qidian" entry
-           (file+headline +org-capture-todo-file "Projects")
-           "* TODO [#A] %?:qidian:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+          ("w" "Work")
+          ("wq" "Qidian" entry
+           (file+headline +org-capture-todo-file "Work")
+           "* TODO %?:qidian:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+           :prepent t :kill-buffer t)
+          ("wi" "Issue" entry
+           (file+headline +org-capture-todo-file "Work")
+           "* TODO %?:qidian:issue:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
            :prepent t :kill-buffer t)
           ("b" "Blog")
           ("bm" "Misc" entry
