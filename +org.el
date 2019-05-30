@@ -68,8 +68,7 @@
           ("wa" "important and urgent!!!" tags-todo "-weekly-monthly-daily+PRIORITY=\"A\"")
           ("wb" "just important" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
           ("wc" "nothing serious" tags-todo "-weekly-monthly-daily++PRIORITY=\"C\"")
-          ("p" . "Project")
-          ("pq" "qidian" tags-todo "-weekly-monthly-daily+qidian+CATEGORY=\"work\"")
+          ("i" "Issue" tags-todo "-weekly-monthly-daily+issue+CATEGORY=\"work\"")
           ("l" "Life" tags-todo "+CATEGORY=\"life\"")
           ("d" "Dreams" tags-todo "+CATEGORY=\"dream\"")
           ("W" "Weekly Review"
