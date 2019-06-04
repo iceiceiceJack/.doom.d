@@ -51,4 +51,5 @@
 
 (map! :leader
       (:prefix-map ("b" . buffer)
-        :desc "iBuffer" "i" #'ibuffer))
+        :desc "switch buffer" "b" #'counsel-switch-buffer
+        :desc "iBuffer"       "i" #'ibuffer))
