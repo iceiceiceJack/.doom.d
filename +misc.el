@@ -23,6 +23,7 @@
         :i "C-b" #'evil-backward-char
         :i "C-n" #'evil-next-line
         :i "C-p" #'evil-previous-line
+        :i "C-d" #'delete-char
         :n "C-a" #'evil-first-non-blank
         :n "C-e" #'evil-end-of-line))
 

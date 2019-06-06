@@ -8,6 +8,8 @@
             (lambda()
               (setq truncate-lines nil)))
   (setq org-ellipsis " ▼ "
+        ;; 避免_被解释为下标
+        org-export-with-sub-superscripts '{}
         org-bullets-bullet-list '("#")
         org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
 
