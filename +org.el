@@ -93,3 +93,11 @@
   (map! (:mode org-mode
           (:ni "C-c i s" #'+my/org-insert-src-block)))
   )
+
+(after! org-pomodoro
+  (+my/pomodoro-notification))
+
+(map! :map org-mode-map
+      :localleader
+      (:prefix ("c" . "clock")
+        "p" #'org-pomodoro))

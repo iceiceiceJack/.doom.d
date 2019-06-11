@@ -13,3 +13,6 @@
 (if (featurep! :input chinese)
     (package! pyim-basedict)
   (package! fcitx))
+
+(if (featurep! :lang org)
+    (package! org-pomodoro))

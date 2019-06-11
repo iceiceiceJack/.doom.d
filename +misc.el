@@ -51,6 +51,6 @@
     (setq fcitx-use-dbus t)))
 
 (map! :leader
-      (:prefix-map ("b" . buffer)
+      (:prefix-map ("b" . "buffer")
         :desc "switch buffer" "b" #'counsel-switch-buffer
         :desc "iBuffer"       "i" #'ibuffer))

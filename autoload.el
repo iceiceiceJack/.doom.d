@@ -32,3 +32,16 @@
     (insert "#+END_SRC\n")
     (previous-line 2)
     (org-edit-src-code)))
+
+;;;###autoload
+(defun +my/pomodoro-notification()
+  "show notifications when pomodoro end"
+  (progn (add-hook 'org-pomodoro-finished-hook '(lambda () (+my/mac-notification "Pomodoro Finished" "Have a break!" t)))
+         (add-hook 'org-pomodoro-short-break-finished-hook '(lambda () (+my/mac-notification "Short Break" "Ready to Go?" t)))
+         (add-hook 'org-pomodoro-long-break-finished-hook '(lambda () (+my/mac-notification "Long Break" "Ready to Go?" t)))))
+
+;;;###autoload
+(defun +my/mac-notification(title message &optional sticky)
+  "Send a notification, With Mavericks and later"
+  (do-applescript
+   (format "display notification \"%s\" with title \"%s\" sound name \"Ping\"" message title)))
