@@ -54,3 +54,12 @@
       (:prefix-map ("b" . "buffer")
         :desc "switch buffer" "b" #'counsel-switch-buffer
         :desc "iBuffer"       "i" #'ibuffer))
+
+(def-package! ibuffer-projectile
+  :after ibuffer
+  :config
+  (add-hook 'ibuffer-hook
+    (lambda ()
+      (ibuffer-projectile-set-filter-groups)
+      (unless (eq ibuffer-sorting-mode 'alphabetic)
+        (ibuffer-do-sort-by-alphabetic)))))

@@ -16,3 +16,5 @@
 
 (if (featurep! :lang org)
     (package! org-pomodoro))
+
+(package! ibuffer-projectile)
