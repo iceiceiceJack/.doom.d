@@ -46,9 +46,11 @@
                     '(pyim-probe-punctuation-line-beginning
                       pyim-probe-punctuation-after-punctuation))
       (map! :g "M-i" 'pyim-convert-string-at-point))
-  (fcitx-aggressive-setup)
-  (when IS-LINUX
-    (setq fcitx-use-dbus t)))
+  (when IS-MAC
+    (fcitx-aggressive-setup)
+    ;; (when IS-LINUX
+    ;;   (setq fcitx-use-dbus t))
+    ))
 
 (map! :leader
       (:prefix-map ("b" . "buffer")

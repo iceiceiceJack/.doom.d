@@ -12,7 +12,8 @@
 ;; instead ABC by U.S.
 (if (featurep! :input chinese)
     (package! pyim-basedict)
-  (package! fcitx))
+  (when IS-MAC
+    (package! fcitx)))
 
 (if (featurep! :lang org)
     (package! org-pomodoro))
