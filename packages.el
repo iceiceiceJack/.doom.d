@@ -1,8 +1,9 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/.doom.d/packages.el
 
-;; (package! ccls :disable t)
-;; (package! eglot)
+(when IS-LINUX
+  (package! ccls :disable t))
+(package! eglot)
 
 ;; brew install hugo
 (package! ox-hugo)

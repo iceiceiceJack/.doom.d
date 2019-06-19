@@ -12,7 +12,7 @@
         ns-use-thin-smoothing t)
   (add-hook 'window-setup-hook #'toggle-frame-maximized))
 (unless window-system
-  (setq doom-theme 'doom-molokai)
+  (setq doom-theme 'doom-one)
   (xterm-mouse-mode t)
   (global-set-key [mouse-4] 'scroll-down-line)
   (global-set-key [mouse-5] 'scroll-up-line))
