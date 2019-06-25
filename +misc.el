@@ -12,7 +12,7 @@
         ns-use-thin-smoothing t)
   (add-hook 'window-setup-hook #'toggle-frame-maximized))
 (unless window-system
-  (setq doom-theme 'doom-one)
+  (setq doom-theme 'doom-nord)
   (xterm-mouse-mode t)
   (global-set-key [mouse-4] 'scroll-down-line)
   (global-set-key [mouse-5] 'scroll-up-line))
@@ -52,11 +52,6 @@
     ;;   (setq fcitx-use-dbus t))
     ))
 
-(map! :leader
-      (:prefix-map ("b" . "buffer")
-        :desc "switch buffer" "b" #'counsel-switch-buffer
-        :desc "iBuffer"       "i" #'ibuffer))
-
 (def-package! ibuffer-projectile
   :after ibuffer
   :config
@@ -65,3 +60,10 @@
       (ibuffer-projectile-set-filter-groups)
       (unless (eq ibuffer-sorting-mode 'alphabetic)
         (ibuffer-do-sort-by-alphabetic)))))
+
+(map! :leader
+      (:prefix-map ("b" . "buffer")
+        :desc "switch buffer" "b" #'counsel-switch-buffer
+        :desc "iBuffer"       "i" #'ibuffer)
+      (:prefix-map ("t" . "toggle")
+        :desc "Truncate Line" "t" #'toggle-truncate-lines))
