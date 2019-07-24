@@ -1,11 +1,15 @@
 ;;; ~/.doom.d/+misc.el -*- lexical-binding: t; -*-
-;;; contain key bindings
 
 (setq user-full-name "Jackie Zhang"
       user-mail-address "zhangk1991@gmail.com")
 
 ;;(setq doom-font (font-spec :family "Monospace" :size 12))
 ;;(setq doom-font (font-spec :family "Fira Mono" :size 12))
+
+(setq package-archives '(("gnu"             . "https://mirrors.cloud.tencent.com/elpa/gnu/")
+                         ("melpa"           . "https://mirrors.cloud.tencent.com/elpa/melpa/")
+                         ("melpa-stable"    . "https://mirrors.cloud.tencent.com/elpa/melpa-stable/")
+                         ("org"             . "https://mirrors.cloud.tencent.com/elpa/org/")))
 
 (when (and IS-MAC window-system)
   (setq doom-theme 'doom-solarized-light
@@ -16,16 +20,6 @@
   (xterm-mouse-mode t)
   (global-set-key [mouse-4] 'scroll-down-line)
   (global-set-key [mouse-5] 'scroll-up-line))
-
-(after! evil
-  (setq evil-escape-key-sequence "kj")
-  (map! :i "C-f" #'evil-forward-char
-        :i "C-b" #'evil-backward-char
-        :i "C-n" #'evil-next-line
-        :i "C-p" #'evil-previous-line
-        :i "C-d" #'delete-char
-        :n "C-a" #'evil-first-non-blank
-        :n "C-e" #'evil-end-of-line))
 
 
 ;; brew tap codefalling/fcitx-remote-for-osx
@@ -47,10 +41,7 @@
                       pyim-probe-punctuation-after-punctuation))
       (map! :g "M-i" 'pyim-convert-string-at-point))
   (when IS-MAC
-    (fcitx-aggressive-setup)
-    ;; (when IS-LINUX
-    ;;   (setq fcitx-use-dbus t))
-    ))
+    (fcitx-aggressive-setup)))
 
 (def-package! ibuffer-projectile
   :after ibuffer
@@ -60,10 +51,3 @@
       (ibuffer-projectile-set-filter-groups)
       (unless (eq ibuffer-sorting-mode 'alphabetic)
         (ibuffer-do-sort-by-alphabetic)))))
-
-(map! :leader
-      (:prefix-map ("b" . "buffer")
-        :desc "switch buffer" "b" #'counsel-switch-buffer
-        :desc "iBuffer"       "i" #'ibuffer)
-      (:prefix-map ("t" . "toggle")
-        :desc "Truncate Line" "t" #'toggle-truncate-lines))

@@ -4,9 +4,9 @@
 
 (after! org
   (add-to-list 'org-modules 'org-habit t)
-  (add-hook 'org-mode-hook
-            (lambda()
-              (setq truncate-lines nil)))
+  ;; (add-hook 'org-mode-hook
+  ;;           (lambda()
+  ;;             (setq truncate-lines nil)))
   (setq org-ellipsis " ▼ "
         ;; 避免_被解释为下标
         org-export-with-sub-superscripts '{}
@@ -21,8 +21,7 @@
         org-agenda-files (list
                           (expand-file-name +org-capture-todo-file org-directory)
                           (expand-file-name +org-capture-notes-file org-directory)
-                          +org-capture-blog-file)
-        )
+                          +org-capture-blog-file))
 
   ;; capture
   (setq org-capture-templates
@@ -54,15 +53,14 @@
            (function +my/org-hugo-new-subtree-post-capture-template))
           ("bc" "Coding" entry
            (file+olp +org-capture-blog-file "Blog" "Coding")
-           (function +my/org-hugo-new-subtree-post-capture-template))
-          ))
+           (function +my/org-hugo-new-subtree-post-capture-template))))
 
   ;; agenda
-  (setq org-agenda-inhibit-startup t ;; ~50x speedup
-        ;; org-agenda-span 'day
-        org-agenda-use-tag-inheritance nil ;; 3-4x speedup
-        ;; org-agenda-window-setup 'only-window
-        org-log-done t)
+  ;; (setq org-agenda-inhibit-startup t ;; ~50x speedup
+  ;;       org-agenda-span 'day
+  ;;       org-agenda-use-tag-inheritance nil ;; 3-4x speedup
+  ;;       org-agenda-window-setup 'only-window
+  ;;       org-log-done t)
   (setq org-agenda-custom-commands
         '(
           ("b" "Blog" todo "" ((org-agenda-files '("~/Blog/posts.org"))))
@@ -76,8 +74,7 @@
           ("W" "Weekly Review"
            ((stuck "") ;; review stuck projects as designated by org-stuck-projects
             (tags-todo "-weekly-monthly-daily+CATEGORY=\"work\"")
-            ))
-          ))
+            ))))
 
   ;; clock
   (setq org-clock-in-switch-to-state "STARTED"
@@ -91,8 +88,7 @@
 
   ;; bingdings
   (map! (:mode org-mode
-          (:ni "C-c i s" #'+my/org-insert-src-block)))
-  )
+          (:ni "C-c i s" #'+my/org-insert-src-block))))
 
 (after! org-pomodoro
   (+my/pomodoro-notification))
