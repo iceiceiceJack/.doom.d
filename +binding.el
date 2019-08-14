@@ -2,7 +2,7 @@
 
 
 (after! evil
-  (setq evil-escape-key-sequence "kj")
+  ;; (setq evil-escape-key-sequence "kj")
   (map! :i "C-f" #'right-char
         :i "C-b" #'left-char
         :i "C-n" #'evil-next-line

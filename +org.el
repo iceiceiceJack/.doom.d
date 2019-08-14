@@ -9,7 +9,7 @@
   ;;             (setq truncate-lines nil)))
   (setq org-ellipsis " ▼ "
         ;; 避免_被解释为下标
-        org-export-with-sub-superscripts '{}
+        org-export-with-sub-superscripts nil
         org-bullets-bullet-list '("#")
         org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
 
@@ -78,15 +78,15 @@
 
   ;; clock
   (setq org-clock-in-switch-to-state "STARTED"
-        org-clock-out-switch-to-state "LATER"
+        org-clock-out-switch-to-state "TODO"
         org-clock-into-drawer t
         org-clock-out-remove-zero-time-clocks t)
 
   ;; todo keywords
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t!)" "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)"))))
+        (quote ((sequence "TODO(t!)" "FIXME(f!)" "NOTE(n!)" "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)"))))
 
-  ;; bingdings
+  ;; bindings
   (map! (:mode org-mode
           (:ni "C-c i s" #'+my/org-insert-src-block))))
 
