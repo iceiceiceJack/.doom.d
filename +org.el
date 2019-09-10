@@ -39,21 +39,33 @@
            "* %?\n%i\n"
            :prepend t :kill-buffer t)
           ("w" "Work")
-          ("wq" "Qidian" entry
+          ("wd" "Work Dream" entry
            (file+headline +org-capture-todo-file "Work")
-           "* TODO %?:qidian:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+           "* TODO %? :dream:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
            :prepent t :kill-buffer t)
-          ("wi" "Issue" entry
+          ("wi" "Work Issue" entry
            (file+headline +org-capture-todo-file "Work")
-           "* TODO %?:qidian:issue:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+           "* FIXME %? :issue:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+           :prepent t :kill-buffer t)
+          ("wm" "Work Misc" entry
+           (file+headline +org-capture-todo-file "Work")
+           "* TODO %? :misc:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
+           :prepent t :kill-buffer t)
+          ("wr" "Work Requirement" entry
+           (file+headline +org-capture-todo-file "Work")
+           "* TODO %? :requirement:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
            :prepent t :kill-buffer t)
           ("b" "Blog")
-          ("bm" "Misc" entry
+          ("bm" "Blog Misc" entry
            (file+olp +org-capture-blog-file "Blog" "Misc")
            (function +my/org-hugo-new-subtree-post-capture-template))
-          ("bc" "Coding" entry
-           (file+olp +org-capture-blog-file "Blog" "Coding")
-           (function +my/org-hugo-new-subtree-post-capture-template))))
+          ("bl" "Blog Languages" entry
+           (file+olp +org-capture-blog-file "Blog" "Languages")
+           (function +my/org-hugo-new-subtree-post-capture-template))
+          ("bt" "Blog Tools" entry
+           (file+olp +org-capture-blog-file "Blog" "Tools")
+           (function +my/org-hugo-new-subtree-post-capture-template))
+          ))
 
   ;; agenda
   ;; (setq org-agenda-inhibit-startup t ;; ~50x speedup

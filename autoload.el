@@ -8,7 +8,7 @@
          (fname (org-hugo-slug title)))
     (mapconcat #'identity
                `(
-                 ,(concat "* NOTE" title)
+                 ,(concat "* NOTE " title)
                  ":PROPERTIES:"
                  ,(concat ":EXPORT_HUGO_BUNDLE: " fname)
                  ,(concat ":EXPORT_DATE: " date)
