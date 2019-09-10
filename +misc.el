@@ -25,6 +25,7 @@
 ;; brew tap codefalling/fcitx-remote-for-osx
 ;; brew install codefalling/fcitx-remote-for-osx/fcitx-remote-for-osx --with-osx-pinyin
 ;; instead ABC by U.S.
+(fcitx-aggressive-setup)
 ;; (if (featurep! :input chinese)
 ;;     (after! pyim
 ;;       (pyim-basedict-enable)
@@ -43,6 +44,7 @@
 ;;   (when IS-MAC
 ;;     (fcitx-aggressive-setup)))
 
+
 (def-package! ibuffer-projectile
   :after ibuffer
   :config
@@ -51,3 +53,7 @@
       (ibuffer-projectile-set-filter-groups)
       (unless (eq ibuffer-sorting-mode 'alphabetic)
         (ibuffer-do-sort-by-alphabetic)))))
+
+(after! company
+  (setq company-global-modes
+        '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)))
