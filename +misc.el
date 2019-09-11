@@ -3,8 +3,7 @@
 (setq user-full-name "Jackie Zhang"
       user-mail-address "zhangk1991@gmail.com")
 
-;;(setq doom-font (font-spec :family "Monospace" :size 12))
-;;(setq doom-font (font-spec :family "Fira Mono" :size 12))
+(setq doom-font (font-spec :family "Iosevka SS08"))
 
 (setq package-archives '(("gnu"             . "https://mirrors.cloud.tencent.com/elpa/gnu/")
                          ("melpa"           . "https://mirrors.cloud.tencent.com/elpa/melpa/")
@@ -14,7 +13,8 @@
 (when (and IS-MAC window-system)
   (setq doom-theme 'doom-solarized-light
         ns-use-thin-smoothing t)
-  (add-hook 'window-setup-hook #'toggle-frame-maximized))
+  ;; (add-hook 'window-setup-hook #'toggle-frame-maximized))
+  (add-hook 'window-setup-hook #'toggle-frame-fullscreen))
 (unless window-system
   (setq doom-theme 'doom-nord)
   (xterm-mouse-mode t)

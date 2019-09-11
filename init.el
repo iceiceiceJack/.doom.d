@@ -187,6 +187,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("70ed3a0f434c63206a23012d9cdfbe6c6d4bb4685ad64154f37f3c15c10f3b90" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" default))
  '(global-wakatime-mode t)
  '(mouse-wheel-progressive-speed nil)
  '(wakatime-api-key "38191231-20c6-435f-be1e-3bfffd1080ea")
