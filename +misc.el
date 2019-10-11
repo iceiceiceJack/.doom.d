@@ -13,8 +13,8 @@
 (when (and IS-MAC window-system)
   (setq doom-theme 'doom-solarized-light
         ns-use-thin-smoothing t)
-  ;; (add-hook 'window-setup-hook #'toggle-frame-maximized))
-  (add-hook 'window-setup-hook #'toggle-frame-fullscreen))
+  (add-hook 'window-setup-hook #'toggle-frame-maximized))
+  ;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen))
 (unless window-system
   (setq doom-theme 'doom-nord)
   (xterm-mouse-mode t)
