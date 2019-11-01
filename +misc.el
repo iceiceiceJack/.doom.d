@@ -45,14 +45,14 @@
 ;;     (fcitx-aggressive-setup)))
 
 
-(def-package! ibuffer-projectile
-  :after ibuffer
-  :config
-  (add-hook 'ibuffer-hook
-    (lambda ()
-      (ibuffer-projectile-set-filter-groups)
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic)))))
+;; (def-package! ibuffer-projectile
+;;   :after ibuffer
+;;   :config
+;;   (add-hook 'ibuffer-hook
+;;     (lambda ()
+;;       (ibuffer-projectile-set-filter-groups)
+;;       (unless (eq ibuffer-sorting-mode 'alphabetic)
+;;         (ibuffer-do-sort-by-alphabetic)))))
 
 (after! company
   (setq company-global-modes

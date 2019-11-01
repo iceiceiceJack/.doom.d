@@ -3,7 +3,7 @@
 
 
 ;; brew install hugo
-(package! ox-hugo)
+;; (package! ox-hugo)
 
 
 ;; brew tap codefalling/fcitx-remote-for-osx
@@ -16,7 +16,7 @@
 ;;     (package! fcitx)))
 
 
-(if (featurep! :lang org)
-    (package! org-pomodoro))
+;; (if (featurep! :lang org)
+;;     (package! org-pomodoro))
 
-(package! ibuffer-projectile)
+(package! org-fancy-priorities :disable t)
