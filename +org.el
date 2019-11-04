@@ -4,9 +4,6 @@
 
 (after! org
   (add-to-list 'org-modules 'org-habit t)
-  ;; (add-hook 'org-mode-hook
-  ;;           (lambda()
-  ;;             (setq truncate-lines nil)))
   (setq org-ellipsis " ▼ "
         ;; 避免_被解释为下标
         org-export-with-sub-superscripts nil
