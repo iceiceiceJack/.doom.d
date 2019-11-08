@@ -47,4 +47,6 @@
 
 (after! company
   (setq company-global-modes
-        '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)))
+        '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)
+        company-idle-delay 0.1)
+  )
