@@ -7,3 +7,7 @@
 ;;   (add-hook 'lsp-after-open-hook #'ccls-code-lens-mode)
 ;;   (ccls-use-default-rainbow-sem-highlight)
   )
+
+;; rust
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer))
