@@ -26,27 +26,9 @@
 ;; brew install codefalling/fcitx-remote-for-osx/fcitx-remote-for-osx --with-osx-pinyin
 ;; instead ABC by U.S.
 (fcitx-aggressive-setup)
-;; (if (featurep! :input chinese)
-;;     (after! pyim
-;;       (pyim-basedict-enable)
-;;       (setq default-input-method "pyim"
-;;             pyim-default-scheme 'quanpin
-;;             pyim-page-tooltip 'popup
-;;             pyim-page-length 10)
-;;       (setq-default pyim-english-input-switch-functions
-;;                     '(pyim-probe-dynamic-english
-;;                       pyim-probe-program-mode
-;;                       pyim-probe-org-structure-template))
-;;       (setq-default pyim-punctuation-half-width-functions
-;;                     '(pyim-probe-punctuation-line-beginning
-;;                       pyim-probe-punctuation-after-punctuation))
-;;       (map! :g "M-i" 'pyim-convert-string-at-point))
-;;   (when IS-MAC
-;;     (fcitx-aggressive-setup)))
-
 
 (after! company
   (setq company-global-modes
         '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)
-        company-idle-delay 0.1)
+        company-idle-delay 0.2)
   )
