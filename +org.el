@@ -51,7 +51,7 @@
            :prepent t :kill-buffer t)
           ("wr" "Work Requirement" entry
            (file+headline +org-capture-todo-file "Work")
-           "* TODO %? :requirement:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n- [ ] 评审\n- [ ] 开发\n- [ ] 联调\n- [ ] 提测\n- [ ] 发布\n"
+           "* TODO %? [%] :requirement:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n- [ ] 评审\n- [ ] 开发\n- [ ] 联调\n- [ ] 提测\n- [ ] 发布\n"
            :prepent t :kill-buffer t)
           ;; ("b" "Blog")
           ;; ("bm" "Blog Misc" entry

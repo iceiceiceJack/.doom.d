@@ -3,7 +3,8 @@
 (setq user-full-name "Jackie Zhang"
       user-mail-address "zhangk1991@gmail.com")
 
-(setq doom-font (font-spec :family "Iosevka SS08"))
+;; (setq doom-font (font-spec :family "Iosevka SS08"))
+;; (setq doom-font (font-spec :family "Fira Code"))
 
 (setq package-archives '(("gnu"             . "https://mirrors.cloud.tencent.com/elpa/gnu/")
                          ("melpa"           . "https://mirrors.cloud.tencent.com/elpa/melpa/")

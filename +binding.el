@@ -9,7 +9,8 @@
         :i "C-p" #'evil-previous-line
         :i "C-d" #'delete-char
         :n "C-a" #'evil-first-non-blank
-        :n "C-e" #'evil-end-of-line))
+        :n "C-e" #'evil-end-of-line
+        ))
 
 (map! :leader
       (:prefix-map ("b" . "buffer")
