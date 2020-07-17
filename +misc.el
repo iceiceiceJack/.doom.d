@@ -9,18 +9,20 @@
 (setq package-archives '(("gnu"             . "https://mirrors.cloud.tencent.com/elpa/gnu/")
                          ("melpa"           . "https://mirrors.cloud.tencent.com/elpa/melpa/")
                          ("melpa-stable"    . "https://mirrors.cloud.tencent.com/elpa/melpa-stable/")
-                         ("org"             . "https://mirrors.cloud.tencent.com/elpa/org/")))
+                         ("org"             . "https://mirrors.cloud.tencent.com/elpa/org/"))
+      display-line-numbers-type nil)
 
 (when (and IS-MAC window-system)
   (setq doom-theme 'doom-solarized-light
         ns-use-thin-smoothing t)
-  (add-hook 'window-setup-hook #'toggle-frame-maximized))
-  ;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen))
+  (add-hook 'window-setup-hook #'toggle-frame-maximized)
+  ;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+  )
 (unless window-system
   (setq doom-theme 'doom-nord)
-  (xterm-mouse-mode t)
   (global-set-key [mouse-4] 'scroll-down-line)
-  (global-set-key [mouse-5] 'scroll-up-line))
+  (global-set-key [mouse-5] 'scroll-up-line)
+  )
 
 
 ;; brew tap codefalling/fcitx-remote-for-osx
@@ -31,5 +33,13 @@
 (after! company
   (setq company-global-modes
         '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)
-        company-idle-delay 0.2)
+        company-idle-delay nil)
   )
+
+(after! lsp
+  (setq lsp-ui-sideline-enable nil)
+  )
+
+;; Switch to the new window after splitting
+(setq evil-split-window-below t
+      evil-vsplit-window-right t)

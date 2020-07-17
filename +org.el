@@ -1,20 +1,23 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
-;; (defvar +my-blog-dir (expand-file-name "~/Blog/"))
+(defvar +my-blog-dir (expand-file-name "~/Blog/"))
 
 (after! org
   (add-to-list 'org-modules 'org-habit t)
   (setq org-ellipsis " ▼ "
         ;; 避免_被解释为下标
         org-export-with-sub-superscripts nil
-        org-bullets-bullet-list '("#")
+        ;; org-bullets-bullet-list '("#")
+        org-superstar-headline-bullets-list '("#")
         org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
 
   ;; define file target
   (setq org-directory "~/Org-notes/"
+        org-archive-location (concat org-directory ".archive/%s::")
+        org-roam-directory (concat org-directory "notes/")
         +org-capture-todo-file "gtd.org"
         +org-capture-notes-file "notes.org"
-        ;; +org-capture-blog-file (expand-file-name "posts.org" +my-blog-dir)
+        +org-capture-blog-file (expand-file-name "posts.org" +my-blog-dir)
         org-agenda-files (list
                           (expand-file-name +org-capture-todo-file org-directory)
                           (expand-file-name +org-capture-notes-file org-directory)
@@ -53,16 +56,16 @@
            (file+headline +org-capture-todo-file "Work")
            "* TODO %? [%] :requirement:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n- [ ] 评审\n- [ ] 开发\n- [ ] 联调\n- [ ] 提测\n- [ ] 发布\n"
            :prepent t :kill-buffer t)
-          ;; ("b" "Blog")
-          ;; ("bm" "Blog Misc" entry
-          ;;  (file+olp +org-capture-blog-file "Blog" "Misc")
-          ;;  (function +my/org-hugo-new-subtree-post-capture-template))
-          ;; ("bl" "Blog Languages" entry
-          ;;  (file+olp +org-capture-blog-file "Blog" "Languages")
-          ;;  (function +my/org-hugo-new-subtree-post-capture-template))
-          ;; ("bt" "Blog Tools" entry
-          ;;  (file+olp +org-capture-blog-file "Blog" "Tools")
-          ;;  (function +my/org-hugo-new-subtree-post-capture-template))
+          ("b" "Blog")
+          ("bm" "Blog Misc" entry
+           (file+olp +org-capture-blog-file "Blog" "Misc")
+           (function +my/org-hugo-new-subtree-post-capture-template))
+          ("bl" "Blog Memorandum" entry
+           (file+olp +org-capture-blog-file "Blog" "Memorandum")
+           (function +my/org-hugo-new-subtree-post-capture-template))
+          ("bt" "Blog Tools" entry
+           (file+olp +org-capture-blog-file "Blog" "Tools")
+           (function +my/org-hugo-new-subtree-post-capture-template))
           ))
 
   ;; agenda
@@ -98,12 +101,9 @@
 
   ;; bindings
   (map! (:mode org-mode
-          (:ni "C-c i s" #'+my/org-insert-src-block))))
-
-;; (after! org-pomodoro
-;;   (+my/pomodoro-notification))
-
-(map! :map org-mode-map
-      :localleader
-      (:prefix ("c" . "clock")
-        "p" #'org-pomodoro))
+         (:ni "C-c i s" #'+my/org-insert-src-block)))
+  (map! :map org-mode-map
+        :localleader
+        (:prefix ("c" . "clock")
+         "p" #'org-pomodoro))
+  )
