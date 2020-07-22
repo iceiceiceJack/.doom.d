@@ -5,10 +5,7 @@
 (after! org
   (add-to-list 'org-modules 'org-habit t)
   (setq org-ellipsis " ▼ "
-        ;; 避免_被解释为下标
-        org-export-with-sub-superscripts nil
-        ;; org-bullets-bullet-list '("#")
-        org-superstar-headline-bullets-list '("#")
+        ;; org-superstar-headline-bullets-list '("#")
         org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
 
   ;; define file target
@@ -69,11 +66,11 @@
           ))
 
   ;; agenda
-  ;; (setq org-agenda-inhibit-startup t ;; ~50x speedup
-  ;;       org-agenda-span 'day
-  ;;       org-agenda-use-tag-inheritance nil ;; 3-4x speedup
-  ;;       org-agenda-window-setup 'only-window
-  ;;       org-log-done t)
+  (setq org-agenda-inhibit-startup t ;; ~50x speedup
+        ;; org-agenda-span 'day
+        ;; org-agenda-use-tag-inheritance nil ;; 3-4x speedup
+        ;; org-agenda-window-setup 'only-window
+        org-log-done t)
   (setq org-agenda-custom-commands
         '(
           ("b" "Blog" todo "" ((org-agenda-files '("~/Blog/posts.org"))))

@@ -158,7 +158,6 @@
         +dragndrop
         +hugo
         +pomodoro
-        +journal
         +present
         +roam)
        ;;perl              ; write code no one else can comprehend
