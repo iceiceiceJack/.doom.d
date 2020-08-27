@@ -1,6 +1,5 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
-(defvar +my-blog-dir (expand-file-name "~/Blog/"))
 
 (after! org
   (add-to-list 'org-modules 'org-habit t)
@@ -14,11 +13,9 @@
         org-roam-directory (concat org-directory "notes/")
         +org-capture-todo-file "gtd.org"
         +org-capture-notes-file "notes.org"
-        +org-capture-blog-file (expand-file-name "posts.org" +my-blog-dir)
         org-agenda-files (list
                           (expand-file-name +org-capture-todo-file org-directory)
                           (expand-file-name +org-capture-notes-file org-directory)
-                          ;; +org-capture-blog-file
                           ))
 
   ;; capture
@@ -53,16 +50,6 @@
            (file+headline +org-capture-todo-file "Work")
            "* TODO %? [%] :requirement:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n- [ ] 评审\n- [ ] 开发\n- [ ] 联调\n- [ ] 提测\n- [ ] 发布\n"
            :prepent t :kill-buffer t)
-          ("b" "Blog")
-          ("bm" "Blog Misc" entry
-           (file+olp +org-capture-blog-file "Blog" "Misc")
-           (function +my/org-hugo-new-subtree-post-capture-template))
-          ("bl" "Blog Memorandum" entry
-           (file+olp +org-capture-blog-file "Blog" "Memorandum")
-           (function +my/org-hugo-new-subtree-post-capture-template))
-          ("bt" "Blog Tools" entry
-           (file+olp +org-capture-blog-file "Blog" "Tools")
-           (function +my/org-hugo-new-subtree-post-capture-template))
           ))
 
   ;; agenda

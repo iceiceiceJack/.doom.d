@@ -1,16 +1,51 @@
 ;;; ~/.doom.d/+misc.el -*- lexical-binding: t; -*-
 
 (setq user-full-name "Jackie Zhang"
-      user-mail-address "zhangk1991@gmail.com")
+      user-mail-address "i@codumn.com"
 
-;; (setq doom-font (font-spec :family "Iosevka SS08"))
-;; (setq doom-font (font-spec :family "Fira Code"))
+      ;; (setq doom-font (font-spec :family "Iosevka SS08"))
+
+      ;; Line numbers are pretty slow all around. The performance boost of
+      ;; disabling them outweighs the utility of always keeping them on.
+      display-line-numbers-type nil
+      )
+
 
 (setq package-archives '(("gnu"             . "https://mirrors.cloud.tencent.com/elpa/gnu/")
                          ("melpa"           . "https://mirrors.cloud.tencent.com/elpa/melpa/")
                          ("melpa-stable"    . "https://mirrors.cloud.tencent.com/elpa/melpa-stable/")
                          ("org"             . "https://mirrors.cloud.tencent.com/elpa/org/"))
-      display-line-numbers-type nil)
+      )
+
+
+(after! company
+  (setq company-global-modes
+        '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)
+        ;; IMO, modern editors have trained a bad habit into us all: a burning
+        ;; need for completion all the time -- as we type, as we breathe, as we
+        ;; pray to the ancient ones -- but how often do you *really* need that
+        ;; information? I say rarely. So opt for manual completion:
+        company-idle-delay nil)
+  )
+
+
+(after! lsp
+  (setq lsp-ui-sideline-enable nil
+        lsp-enable-symbol-highlighting nil)
+  )
+
+
+;; Switch to the new window after splitting
+(setq evil-split-window-below t
+      evil-vsplit-window-right t
+      )
+
+
+;;; :ui doom-dashboard
+(setq fancy-splash-image (concat doom-private-dir "splash.png"))
+;; Don't need the menu; I know them all by heart
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+
 
 (when (and IS-MAC window-system)
   (setq doom-theme 'doom-solarized-light
@@ -29,17 +64,3 @@
 ;; brew install codefalling/fcitx-remote-for-osx/fcitx-remote-for-osx --with-osx-pinyin
 ;; instead ABC by U.S.
 (fcitx-aggressive-setup)
-
-(after! company
-  (setq company-global-modes
-        '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)
-        company-idle-delay nil)
-  )
-
-(after! lsp
-  (setq lsp-ui-sideline-enable nil)
-  )
-
-;; Switch to the new window after splitting
-(setq evil-split-window-below t
-      evil-vsplit-window-right t)
