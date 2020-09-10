@@ -3,7 +3,7 @@
 (setq user-full-name "Jackie Zhang"
       user-mail-address "i@codumn.com"
 
-      ;; (setq doom-font (font-spec :family "Iosevka SS08"))
+      ;; doom-font (font-spec :family "Iosevka SS08")
 
       ;; Line numbers are pretty slow all around. The performance boost of
       ;; disabling them outweighs the utility of always keeping them on.

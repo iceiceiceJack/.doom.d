@@ -14,6 +14,11 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+(use-package-hook! org-roam
+  :pre-config
+  (setq org-roam-directory org-directory)
+  t)
+
 (doom! :input
        ;;chinese
        ;;japanese

@@ -1,87 +1,61 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
-
 (after! org
   (add-to-list 'org-modules 'org-habit t)
   (setq org-ellipsis " ▼ "
-        ;; org-superstar-headline-bullets-list '("#")
-        org-stuck-projects '("TODO={.+}/-DONE" nil nil "SCHEDULED:\\|DEADLINE:"))
-
-  ;; define file target
-  (setq org-directory "~/Org-notes/"
         org-archive-location (concat org-directory ".archive/%s::")
-        org-roam-directory (concat org-directory "notes/")
-        +org-capture-todo-file "gtd.org"
-        +org-capture-notes-file "notes.org"
-        org-agenda-files (list
-                          (expand-file-name +org-capture-todo-file org-directory)
-                          (expand-file-name +org-capture-notes-file org-directory)
-                          ))
+        )
+
+  ;; org-roam
+  (setq org-roam-dailies-capture-templates
+        '(("d" "daily" plain
+           #'org-roam-capture--get-point ""
+           :immediate-finish t :file-name "dailies/%<%Y>/%<%B>/%<%m-%d-%a>" :head "#+title: %<%Y-%m-%d>"))
+        org-roam-capture-templates
+        '(("d" "default" plain
+           #'org-roam-capture--get-point "%?"
+           :file-name "notes/%<%Y%m%d>-${slug}" :head "#+title: ${title}\n" :unnarrowed t))
+        )
 
   ;; capture
   (setq org-capture-templates
         '(
           ("t" "Todo" entry
-           (file+headline +org-capture-todo-file "Capture")
-           "* TODO %?\n:PROPERTIES:\n:CATEGORY: \n:END:\n%i\n"
-           :prepend t :kill-buffer t)
-          ("d" "Dream" entry
-           (file+headline +org-capture-todo-file "Dream")
-           "* TODO %?\n:PROPERTIES:\n:CATEGORY: dream\n:END:\n%i\n"
-           :prepend t :kill-buffer t)
-          ("n" "Notes" entry
-           (file+headline +org-capture-notes-file "Quick Notes")
-           "* %?\n%i\n"
-           :prepend t :kill-buffer t)
-          ("w" "Work")
-          ("wd" "Work Dream" entry
-           (file+headline +org-capture-todo-file "Work")
-           "* TODO %? :dream:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
-           :prepent t :kill-buffer t)
-          ("wi" "Work Issue" entry
-           (file+headline +org-capture-todo-file "Work")
-           "* FIXME %? :issue:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
-           :prepent t :kill-buffer t)
-          ("wm" "Work Misc" entry
-           (file+headline +org-capture-todo-file "Work")
-           "* TODO %? :misc:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n"
-           :prepent t :kill-buffer t)
-          ("wr" "Work Requirement" entry
-           (file+headline +org-capture-todo-file "Work")
-           "* TODO %? [%] :requirement:\n:PROPERTIES:\n:CATEGORY: work\n:END:\n%i\n- [ ] 评审\n- [ ] 开发\n- [ ] 联调\n- [ ] 提测\n- [ ] 发布\n"
-           :prepent t :kill-buffer t)
+           (file+headline +org-capture-todo-file "Inbox")
+           "* TODO %? \n:PROPERTIES:\n:CATEGORY: \n:END:\n%i\n"
+           :empty-lines-after 1 :kill-buffer t)
+          ("s" "Story" entry
+           (file+headline +org-capture-todo-file "Story")
+           "* TODO %? \n:PROPERTIES:\n:CATEGORY: story\n:END:\n%i\n"
+           :empty-lines-after 1 :kill-buffer t)
+          ("i" "Issue" entry
+           (file+headline +org-capture-todo-file "Issue")
+           "* TODO %? \n:PROPERTIES:\n:CATEGORY: issue\n:END:\n%i\n"
+           :empty-lines-after 1 :kill-buffer t)
           ))
 
   ;; agenda
-  (setq org-agenda-inhibit-startup t ;; ~50x speedup
-        ;; org-agenda-span 'day
-        ;; org-agenda-use-tag-inheritance nil ;; 3-4x speedup
-        ;; org-agenda-window-setup 'only-window
-        org-log-done t)
-  (setq org-agenda-custom-commands
+  (setq org-agenda-start-day "-7d"
+        org-agenda-files (directory-files-recursively org-directory "\\.org$")
+        ;; org-log-done t
+        org-agenda-custom-commands
         '(
-          ("b" "Blog" todo "" ((org-agenda-files '("~/Blog/posts.org"))))
-          ("w" . "Task")
+          ("w" . "Work")
           ("wa" "important and urgent!!!" tags-todo "-weekly-monthly-daily+PRIORITY=\"A\"")
           ("wb" "just important" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
-          ("wc" "nothing serious" tags-todo "-weekly-monthly-daily++PRIORITY=\"C\"")
-          ("i" "Issue" tags-todo "-weekly-monthly-daily+issue+CATEGORY=\"work\"")
-          ("l" "Life" tags-todo "+CATEGORY=\"life\"")
+          ("wc" "nothing serious" tags-todo "-weekly-monthly-daily+PRIORITY=\"C\"")
           ("d" "Dreams" tags-todo "+CATEGORY=\"dream\"")
-          ("W" "Weekly Review"
-           ((stuck "") ;; review stuck projects as designated by org-stuck-projects
-            (tags-todo "-weekly-monthly-daily+CATEGORY=\"work\"")
-            ))))
+            ))
 
   ;; clock
-  (setq org-clock-in-switch-to-state "STARTED"
+  (setq org-clock-in-switch-to-state "STRT"
         org-clock-out-switch-to-state "TODO"
         org-clock-into-drawer t
         org-clock-out-remove-zero-time-clocks t)
 
   ;; todo keywords
-  (setq org-todo-keywords
-        (quote ((sequence "TODO(t!)" "FIXME(f!)" "NOTE(n!)" "STARTED(s)" "LATER(l)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELLED(c@/!)"))))
+  ;; (setq org-todo-keywords
+  ;;       (quote ((sequence "TODO(t!)" "FIXME(f!)" "NOTE(n!)" "STRT(s)" "HOLD(h)" "WAIT(w@/!)" "|" "DONE(d!)" "KILL(k@/!)"))))
 
   ;; bindings
   (map! (:mode org-mode
@@ -90,4 +64,4 @@
         :localleader
         (:prefix ("c" . "clock")
          "p" #'org-pomodoro))
-  )
+)
