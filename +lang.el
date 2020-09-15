@@ -4,7 +4,8 @@
 (after! ccls
   (setq ccls-sem-highlight-method 'font-lock
         lsp-file-watch-threshold nil)
-  (ccls-use-default-rainbow-sem-highlight)
+  (if IS-MAC
+      (ccls-use-default-rainbow-sem-highlight))
   )
 
 ;; rust
