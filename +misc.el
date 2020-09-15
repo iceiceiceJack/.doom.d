@@ -31,7 +31,8 @@
 
 (after! lsp
   (setq lsp-ui-sideline-enable nil
-        lsp-enable-symbol-highlighting nil)
+        lsp-enable-symbol-highlighting nil
+        )
   )
 
 
