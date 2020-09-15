@@ -21,11 +21,8 @@
 (after! company
   (setq company-global-modes
         '(not erc-mode message-mode help-mode gud-mode eshell-mode org-mode markdown-mode)
-        ;; IMO, modern editors have trained a bad habit into us all: a burning
-        ;; need for completion all the time -- as we type, as we breathe, as we
-        ;; pray to the ancient ones -- but how often do you *really* need that
-        ;; information? I say rarely. So opt for manual completion:
-        company-idle-delay nil)
+        company-idle-delay 0.2
+        )
   )
 
 
