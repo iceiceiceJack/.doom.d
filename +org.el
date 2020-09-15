@@ -41,9 +41,9 @@
         org-agenda-custom-commands
         '(
           ("w" . "Work")
-          ("wa" "important and urgent!!!" tags-todo "-weekly-monthly-daily+PRIORITY=\"A\"")
-          ("wb" "just important" tags-todo "-weekly-monthly-daily+PRIORITY=\"B\"")
-          ("wc" "nothing serious" tags-todo "-weekly-monthly-daily+PRIORITY=\"C\"")
+          ("wa" "important and urgent!!!" tags-todo "-weekly-monthly-daily-CATEGORY=\"dream\"+PRIORITY=\"A\"")
+          ("wb" "just important" tags-todo "-weekly-monthly-daily-CATEGORY=\"dream\"+PRIORITY=\"B\"")
+          ("wc" "nothing serious" tags-todo "-weekly-monthly-daily-CATEGORY=\"dream\"+PRIORITY=\"C\"")
           ("d" "Dreams" tags-todo "+CATEGORY=\"dream\"")
             ))
 
