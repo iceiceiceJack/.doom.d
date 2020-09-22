@@ -15,18 +15,27 @@
         '(("d" "default" plain
            #'org-roam-capture--get-point "%?"
            :file-name "notes/%<%Y%m%d>-${slug}" :head "#+title: ${title}\n" :unnarrowed t))
+        org-roam-capture-immediate-template
+        '(("d" "default" plain
+           #'org-roam-capture--get-point "%?"
+           :file-name "notes/%<%Y%m%d>-${slug}" :head "#+title: ${title}\n" :unnarrowed t :immediate-finish t))
         )
 
   ;; capture
   (setq org-capture-templates
         '(
-          ("t" "Todo" entry
+          ("t" "Inbox" entry
            (file+headline +org-capture-todo-file "Inbox")
            "* TODO %? \n:PROPERTIES:\n:CATEGORY: \n:END:\n%i\n"
            :empty-lines-after 1 :kill-buffer t)
-          ("s" "Story" entry
-           (file+headline +org-capture-todo-file "Story")
-           "* TODO %? \n:PROPERTIES:\n:CATEGORY: story\n:END:\n%i\n"
+          ("s" "Story")
+          ("st" "Tech Story" entry
+           (file+headline +org-capture-todo-file "Technical Story")
+           "* TODO %? \n:PROPERTIES:\n:CATEGORY: 技术需求\n:END:\n%i\n"
+           :empty-lines-after 1 :kill-buffer t)
+          ("sp" "Product Story" entry
+           (file+headline +org-capture-todo-file "Product Story")
+           "* TODO %? \n:PROPERTIES:\n:CATEGORY: 产品需求\n:END:\n%i\n"
            :empty-lines-after 1 :kill-buffer t)
           ("i" "Issue" entry
            (file+headline +org-capture-todo-file "Issue")
