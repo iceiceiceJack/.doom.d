@@ -15,10 +15,10 @@
         '(("d" "default" plain
            #'org-roam-capture--get-point "%?"
            :file-name "notes/%<%Y%m%d>-${slug}" :head "#+title: ${title}\n" :unnarrowed t))
-        org-roam-capture-immediate-template
-        '(("d" "default" plain
-           #'org-roam-capture--get-point "%?"
-           :file-name "notes/%<%Y%m%d>-${slug}" :head "#+title: ${title}\n" :unnarrowed t :immediate-finish t))
+        ;; org-roam-capture-immediate-template
+        ;; '(("d" "default" plain
+        ;;    #'org-roam-capture--get-point "%?"
+        ;;    :file-name "notes/%<%Y%m%d>-${slug}" :head "#+title: ${title}\n" :unnarrowed t :immediate-finish t))
         )
 
   ;; capture
