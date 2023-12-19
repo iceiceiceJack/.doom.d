@@ -2,3 +2,4 @@
 
 
 (load! "+misc")
+(load! "+lang")

@@ -7,7 +7,8 @@
 (setq package-archives '(("gnu"             . "https://mirrors.cloud.tencent.com/elpa/gnu/")
                          ("melpa"           . "https://mirrors.cloud.tencent.com/elpa/melpa/")
                          ("melpa-stable"    . "https://mirrors.cloud.tencent.com/elpa/melpa-stable/")
-                         ("org"             . "https://mirrors.cloud.tencent.com/elpa/org/")))
+                         ("org"             . "https://mirrors.cloud.tencent.com/elpa/org/")
+                         ))
 
 (when (and IS-MAC window-system)
   (setq doom-theme 'doom-solarized-light
@@ -28,6 +29,7 @@
 ;; (setq fancy-splash-image (concat doom-user-dir "splash.png"))
 
 
+;; config sis
 (use-package sis
   ;; :hook
   ;; ;; enable the /context/ and /inline region/ mode for specific buffers

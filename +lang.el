@@ -11,3 +11,7 @@
 ;; rust
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer))
+
+;; python
+;; TODO unvalid
+;; (setq-hook! 'python-mode-hook python-indent-offset 2)
